@@ -144,16 +144,19 @@ public with sharing class ClassesObjectsMethods {
      * @return The absolute value of the difference
      */
     public static Double calculateDifferenceOfSquares(Double a, Double b) {
-        if(a!=null&&b!=null){
-            // Square the input numbers using the Math.pow() function
-            Double aSquared=Math.pow(a, 2);
-            Double bSquared=Math.pow(b, 2);
-        
-            Double differenceOfSquares = Math.abs(aSquared-bSquared); // Calculate the absolute difference using Math.abs() function
+        Double differenceOfSquares;
+        Double aSquared;
+        Double bSquared;
 
-            return differenceOfSquares; // Return the difference of the squares
+        if(a!=null&&b!=null){ // Only proceed if neither number is false
+            // Square the input numbers using the Math.pow() function
+            aSquared=Math.pow(a, 2);
+            bSquared=Math.pow(b, 2);
+        
+            differenceOfSquares = Math.abs(aSquared-bSquared); // Calculate the absolute difference using Math.abs() function
         }
-        return null; // Return null if either number is null    
+        
+        return differenceOfSquares; // Return the difference of the squares
     }
 
     /**
