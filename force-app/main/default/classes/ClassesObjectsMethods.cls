@@ -50,7 +50,7 @@ public with sharing class ClassesObjectsMethods {
         hellos.add(helloFiveCharacters);// In the second position add the substring
         hellos.add(helloLowercase);// In the third position add the string in lower case
 
-        return hellos; // Replace null with the variable you used to store the result
+        return hellos; // Return the list
     }
 
     /**
@@ -67,7 +67,7 @@ public with sharing class ClassesObjectsMethods {
         stringContains.add(input.right(5)=='Force'); // Check if the string ends with 'Force'
         stringContains.add(input.contains('Awesome')); // Check if the string contains 'Awesome'
         
-        return stringContains; // Replace null with the variable you used to store the result
+        return stringContains; // Return the list
     }
 
     /**
@@ -83,8 +83,7 @@ public with sharing class ClassesObjectsMethods {
 
         // Join the unique words back into a sentence
         for (String s : sentenceSet){
-            sentenceDeduplicated+=s; // Add each string to the sentence string
-            sentenceDeduplicated+=' '; // Add a space after each word
+            sentenceDeduplicated=sentenceDeduplicated+s+' '; // Add each string to the sentence string with a space after each word
         }
         sentenceDeduplicated=sentenceDeduplicated.trim(); // Remove the trailing space from the string
 
@@ -145,13 +144,16 @@ public with sharing class ClassesObjectsMethods {
      * @return The absolute value of the difference
      */
     public static Double calculateDifferenceOfSquares(Double a, Double b) {
-        // Square the input numbers using the Math.pow() function
-        Double aSquared=Math.pow(a, 2);
-        Double bSquared=Math.pow(b, 2);
+        if(a!=null&&b!=null){
+            // Square the input numbers using the Math.pow() function
+            Double aSquared=Math.pow(a, 2);
+            Double bSquared=Math.pow(b, 2);
         
-        Double differenceOfSquares = Math.abs(aSquared-bSquared); // Calculate the absolute difference using Math.abs() function
+            Double differenceOfSquares = Math.abs(aSquared-bSquared); // Calculate the absolute difference using Math.abs() function
 
-        return differenceOfSquares; // Return the difference of the squares
+            return differenceOfSquares; // Return the difference of the squares
+        }
+        return null; // Return null if either number is null    
     }
 
     /**
@@ -163,8 +165,8 @@ public with sharing class ClassesObjectsMethods {
     public static Integer generateRandomNumber() {
         Integer randomNum=0;
         
-        while (randomNum<50||randomNum>100){
-            randomNum=Integer.valueOf(100*Math.random())+Integer.valueOf(10*Math.random()); // Use Math class to generate number between 50 and 100
+        while (randomNum<50){
+            randomNum=Integer.valueOf(100*Math.random()); // Use Math class to generate number between 50 and 100
         }
 
         return randomNum; // Return the random integer
@@ -179,8 +181,7 @@ public with sharing class ClassesObjectsMethods {
     public static String getCurrentDate() {
         String todayDate = Date.today().format(); // Get today's date
 
-        // Return the result
-        return todayDate; // Replace null with the variable you used to store the result
+        return todayDate; // Return the formatted date
     }
 
     /**
@@ -191,7 +192,7 @@ public with sharing class ClassesObjectsMethods {
      */
     public static String getDayOfWeek(DateTime dt) {
         Map <String,String> weekDays = new Map<String,String>(); // An empty map to hold the values of the days of the week
-        String dayName=''; // The name of the day of the week
+        String dayName=dt.format('EEEE'); // The name of the day of the week
         String dayNumber=''; // The number of the day of the week
         
         // Add values to map: Monday = 1, Tuesday = 2, etc.
@@ -202,8 +203,6 @@ public with sharing class ClassesObjectsMethods {
         weekDays.put('Friday', '5');
         weekDays.put('Saturday', '6');
         weekDays.put('Sunday', '7');
-
-        dayName=dt.format('EEEE'); // Get the day name using
 
         dayNumber=weekDays.get(dayName); // Get the day number from the map using the day name
 
