@@ -148,14 +148,14 @@ public with sharing class ClassesObjectsMethods {
         Double aSquared;
         Double bSquared;
 
-        if(a!=null&&b!=null){ // Only proceed if neither number is false
+        if(a!=null&&b!=null){ // Only proceed if neither number is null
             // Square the input numbers using the Math.pow() function
             aSquared=Math.pow(a, 2);
             bSquared=Math.pow(b, 2);
         
             differenceOfSquares = Math.abs(aSquared-bSquared); // Calculate the absolute difference using Math.abs() function
         }
-        
+
         return differenceOfSquares; // Return the difference of the squares
     }
 
